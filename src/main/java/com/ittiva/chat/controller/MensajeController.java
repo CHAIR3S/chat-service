@@ -28,26 +28,26 @@ public class MensajeController {
     @Autowired
     private IMensajeService mensajeService;
 
-    @GetMapping
-    public ResponseEntity<RespuestaDTO> obtenerTodos() {
-        log.info("Obteniendo todos los mensajes");
-        RespuestaDTO respuesta = mensajeService.obtener();
-        return ResponseEntity.ok(respuesta);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<RespuestaDTO> obtenerPorId(@PathVariable Long id) {
-        log.info("Obteniendo mensaje con ID: {}", id);
-        RespuestaDTO respuesta = mensajeService.obtenerPorId(id);
-        return ResponseEntity.ok(respuesta);
-    }
-
-    @GetMapping("/chat/{idChat}")
-    public ResponseEntity<RespuestaDTO> obtenerPorChat(@PathVariable Long idChat) {
-        log.info("Obteniendo mensajes por chat con ID: {}", idChat);
-        RespuestaDTO respuesta = mensajeService.obtenerPorChat(idChat);
-        return ResponseEntity.ok(respuesta);
-    }
+//    @GetMapping
+//    public ResponseEntity<RespuestaDTO> obtenerTodos() {
+//        log.info("Obteniendo todos los mensajes");
+//        RespuestaDTO respuesta = mensajeService.obtener();
+//        return ResponseEntity.ok(respuesta);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<RespuestaDTO> obtenerPorId(@PathVariable Long id) {
+//        log.info("Obteniendo mensaje con ID: {}", id);
+//        RespuestaDTO respuesta = mensajeService.obtenerPorId(id);
+//        return ResponseEntity.ok(respuesta);
+//    }
+//
+//    @GetMapping("/chat/{idChat}")
+//    public ResponseEntity<RespuestaDTO> obtenerPorChat(@PathVariable Long idChat) {
+//        log.info("Obteniendo mensajes por chat con ID: {}", idChat);
+//        RespuestaDTO respuesta = mensajeService.obtenerPorChat(idChat);
+//        return ResponseEntity.ok(respuesta);
+//    }
 
     @MessageMapping("/chat1")
     @SendTo("topic/canal1")
@@ -58,18 +58,18 @@ public class MensajeController {
         return new RespuestaDTO();
     }
 
-    @PutMapping
-    public ResponseEntity<RespuestaDTO> actualizar(@RequestBody MensajeDTO mensajeDTO) {
-        log.info("Actualizando mensaje con ID: {}", mensajeDTO.getIdMensaje());
-        RespuestaDTO respuesta = mensajeService.actualiza(mensajeDTO);
-        return ResponseEntity.ok(respuesta);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<RespuestaDTO> eliminar(@PathVariable Long id) {
-        log.info("Eliminando mensaje con ID: {}", id);
-        RespuestaDTO respuesta = mensajeService.elimina(id);
-        return ResponseEntity.ok(respuesta);
-    }
+//    @PutMapping
+//    public ResponseEntity<RespuestaDTO> actualizar(@RequestBody MensajeDTO mensajeDTO) {
+//        log.info("Actualizando mensaje con ID: {}", mensajeDTO.getIdMensaje());
+//        RespuestaDTO respuesta = mensajeService.actualiza(mensajeDTO);
+//        return ResponseEntity.ok(respuesta);
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<RespuestaDTO> eliminar(@PathVariable Long id) {
+//        log.info("Eliminando mensaje con ID: {}", id);
+//        RespuestaDTO respuesta = mensajeService.elimina(id);
+//        return ResponseEntity.ok(respuesta);
+//    }
 
 }
